@@ -1,0 +1,332 @@
+[
+ {
+  "event_uid": "2abb6855b6f8b93a",
+  "cluster_id": "T1003.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-02 03:05",
+  "technique_label": "T1003.001"
+ },
+ {
+  "event_uid": "daef5aa388be95be",
+  "cluster_id": "T1003.001|cmd_lsass_memory_dumpert_syscalls_2020-10-1822561997.json|2020-10-19 02:56",
+  "technique_label": "T1003.001"
+ },
+ {
+  "event_uid": "691ea664af0c6825",
+  "cluster_id": "T1003.001|empire_mimikatz_logonpasswords_2020-08-07103224.json|2020-08-07 14:32",
+  "technique_label": "T1003.001"
+ },
+ {
+  "event_uid": "3e74cf0cc7262865",
+  "cluster_id": "T1003.001|empire_mimikatz_lsadump_patch_2020-08-07103913.json|2020-08-07 14:39",
+  "technique_label": "T1003.001"
+ },
+ {
+  "event_uid": "8f89f300f15943c7",
+  "cluster_id": "T1003.001|empire_over_pth_patch_lsass_2020-09-21221336.json|2020-09-22 02:14",
+  "technique_label": "T1003.001"
+ },
+ {
+  "event_uid": "2456ef40fdb9b6fd",
+  "cluster_id": "T1003.001|rdp_interactive_taskmanager_lsass_dump_2020-09-22043748.json|2020-09-22 08:38",
+  "technique_label": "T1003.001"
+ },
+ {
+  "event_uid": "f75cb76d84f877ff",
+  "cluster_id": "T1003.006|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:16",
+  "technique_label": "T1003.006"
+ },
+ {
+  "event_uid": "897e82cd22af2fbd",
+  "cluster_id": "T1003.006|covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges_2020-08-05020926.json|2020-08-05 02:10",
+  "technique_label": "T1003.006"
+ },
+ {
+  "event_uid": "a8dacd4af416fb89",
+  "cluster_id": "T1003.006|empire_dcsync_dcerpc_drsuapi_DsGetNCChanges_2020-09-21185829.json|2020-09-21 18:59",
+  "technique_label": "T1003.006"
+ },
+ {
+  "event_uid": "4fc6fdb9ffb5b639",
+  "cluster_id": "T1021.002|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:04",
+  "technique_label": "T1021.002"
+ },
+ {
+  "event_uid": "e6d1cbf7c4df332b",
+  "cluster_id": "T1021.002|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:11",
+  "technique_label": "T1021.002"
+ },
+ {
+  "event_uid": "2f30cab8cdd5fe27",
+  "cluster_id": "T1021.002|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:12",
+  "technique_label": "T1021.002"
+ },
+ {
+  "event_uid": "5f7b93f896911af1",
+  "cluster_id": "T1021.002|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:13",
+  "technique_label": "T1021.002"
+ },
+ {
+  "event_uid": "712e9dca14a5be1d",
+  "cluster_id": "T1021.002|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:15",
+  "technique_label": "T1021.002"
+ },
+ {
+  "event_uid": "dd416057eacf63a0",
+  "cluster_id": "T1021.002|covenant_sharpsc_create_dcerpc_smb_svcctl_2020-08-06022635.json|2020-08-06 02:27",
+  "technique_label": "T1021.002"
+ },
+ {
+  "event_uid": "13a86c59eab2c97c",
+  "cluster_id": "T1021.002|empire_psexec_dcerpc_tcp_svcctl_2020-09-20121608.json|2020-09-20 12:16",
+  "technique_label": "T1021.002"
+ },
+ {
+  "event_uid": "fd820f9cacbae028",
+  "cluster_id": "T1021.002|empire_smbexec_dcerpc_smb_svcctl_2020-09-20025716.json|2020-09-20 02:57",
+  "technique_label": "T1021.002"
+ },
+ {
+  "event_uid": "b7d819458bfa1246",
+  "cluster_id": "T1053.005|empire_schtasks_creation_execution_elevated_user_2020-09-21175806.json|2020-09-21 21:58",
+  "technique_label": "T1053.005"
+ },
+ {
+  "event_uid": "8a17b491b39e3890",
+  "cluster_id": "T1053.005|empire_schtasks_creation_standard_user_2020-09-21031526.json|2020-09-21 07:15",
+  "technique_label": "T1053.005"
+ },
+ {
+  "event_uid": "f1f7f5f2d849a95e",
+  "cluster_id": "T1053.005|schtask_create_2020-12-1907003032.json|2020-12-19 12:00",
+  "technique_label": "T1053.005"
+ },
+ {
+  "event_uid": "edfd71c1fc0e6d92",
+  "cluster_id": "T1055|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-02 03:05",
+  "technique_label": "T1055"
+ },
+ {
+  "event_uid": "0f4f8762226edc55",
+  "cluster_id": "T1055|covenant_lolbin_wuauclt_createremotethread_2020-10-12183248.json|2020-10-12 22:34",
+  "technique_label": "T1055"
+ },
+ {
+  "event_uid": "55fd8ecac30437d4",
+  "cluster_id": "T1055|empire_dllinjection_LoadLibrary_CreateRemoteThread_2020-07-22000048.json|2020-07-22 04:01",
+  "technique_label": "T1055"
+ },
+ {
+  "event_uid": "54d7bbb55bb2c128",
+  "cluster_id": "T1055|empire_psinject_PEinjection_2020-08-07143205.json|2020-08-07 18:32",
+  "technique_label": "T1055"
+ },
+ {
+  "event_uid": "8e3d9584157cfe02",
+  "cluster_id": "T1055|purplesharp_pe_injection_createremotethread_2020-10-2303121085.json|2020-10-23 07:12",
+  "technique_label": "T1055"
+ },
+ {
+  "event_uid": "e9a64f1ee67ed9bc",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 22:56",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "405c609704e21ec8",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 22:57",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "381e058a0f2143f9",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 22:58",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "dd7d4f3852925a5b",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 22:59",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "61abe87086627468",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:00",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "f9ab6bef5a4f1346",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:01",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "a1bb41df3f5a40d4",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:02",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "b46624c2ed343f21",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:03",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "a6a6035023480be7",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:04",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "6c4df5e61779c14f",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:05",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "1862849218beeb2f",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:06",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "c4c3bcc2ef7ff3ec",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:07",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "cddc9a4474d30cb1",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:08",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "bd6b01c6aa562c1f",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:09",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "081b15be6429e5cb",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:10",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "10c9e2221a786d8e",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:11",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "df28c325f68125d2",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:12",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "2120d356ca88c930",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:13",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "d2ea07bf752be380",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:14",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "6db115ad90354c2e",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:15",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "73f4c8579442eb24",
+  "cluster_id": "T1059.001|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:16",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "4d3f8fd71a731ced",
+  "cluster_id": "T1059.001|psh_disable_eventlog_service_startuptype_modification.json|2022-08-04 08:36",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "87884d178c68e47a",
+  "cluster_id": "T1059.001|psh_disable_eventlog_service_startuptype_modification.json|2022-08-04 08:37",
+  "technique_label": "T1059.001"
+ },
+ {
+  "event_uid": "30f8bc022db8378b",
+  "cluster_id": "T1059.003|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-02 03:03",
+  "technique_label": "T1059.003"
+ },
+ {
+  "event_uid": "7907851ddc470a80",
+  "cluster_id": "T1059.003|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-02 03:06",
+  "technique_label": "T1059.003"
+ },
+ {
+  "event_uid": "abc5f99f17f83669",
+  "cluster_id": "T1059.003|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-02 03:24",
+  "technique_label": "T1059.003"
+ },
+ {
+  "event_uid": "078205eeae51f4f2",
+  "cluster_id": "T1059.003|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-02 03:25",
+  "technique_label": "T1059.003"
+ },
+ {
+  "event_uid": "ae4b62e1857e1a39",
+  "cluster_id": "T1059.003|cmd_dumping_ntds_dit_file_ntdsutil.json|2023-07-19 16:02",
+  "technique_label": "T1059.003"
+ },
+ {
+  "event_uid": "5ced8e2750f407b9",
+  "cluster_id": "T1546.003|covenant_persistwmi_2019-12-05044734.json|2019-12-05 04:47",
+  "technique_label": "T1546.003"
+ },
+ {
+  "event_uid": "81ce69fde1c8881b",
+  "cluster_id": "T1546.003|covenant_wmi_remote_event_subscription_ActiveScriptEventConsumers_2020-09-01214330.json|2020-09-01 21:43",
+  "technique_label": "T1546.003"
+ },
+ {
+  "event_uid": "7684b45b5658e3e9",
+  "cluster_id": "T1546.003|covenant_wmi_remote_event_subscription_ActiveScriptEventConsumers_2020-09-01214330.json|2020-09-01 21:44",
+  "technique_label": "T1546.003"
+ },
+ {
+  "event_uid": "0cd5c35245f5cddf",
+  "cluster_id": "T1546.003|covenant_wmi_remote_event_subscription_ActiveScriptEventConsumers_2020-09-01214330.json|2020-09-02 01:43",
+  "technique_label": "T1546.003"
+ },
+ {
+  "event_uid": "6b4c661df59e892b",
+  "cluster_id": "T1546.003|covenant_wmi_remote_event_subscription_ActiveScriptEventConsumers_2020-09-01214330.json|2020-09-02 01:44",
+  "technique_label": "T1546.003"
+ },
+ {
+  "event_uid": "44e005ac75b5e4d3",
+  "cluster_id": "T1546.003|empire_wmi_local_event_subscriptions_elevated_user_2020-09-04164306.json|2020-09-04 20:43",
+  "technique_label": "T1546.003"
+ },
+ {
+  "event_uid": "d2d8a80c7c8a667f",
+  "cluster_id": "T1547.001|empire_persistence_registry_modification_run_keys_elevated_user_2020-07-22001847.json|2020-07-22 04:19",
+  "technique_label": "T1547.001"
+ },
+ {
+  "event_uid": "2a127f68cdc4410d",
+  "cluster_id": "T1547.001|empire_persistence_registry_modification_run_keys_standard_user_2020-09-04030609.json|2020-09-04 07:06",
+  "technique_label": "T1547.001"
+ },
+ {
+  "event_uid": "243e55d798340ba4",
+  "cluster_id": "T1547.001|empire_persistence_registry_modification_run_keys_standard_user_2020-09-04030609.json|2020-09-04 07:08",
+  "technique_label": "T1547.001"
+ },
+ {
+  "event_uid": "8d33096e36564250",
+  "cluster_id": "T1562.002|cmd_stop_event_logging_controlset001_minint_key.json|2022-08-04 02:31",
+  "technique_label": "T1562.002"
+ },
+ {
+  "event_uid": "0f52bd6cebbe0bd5",
+  "cluster_id": "T1562.002|psh_disable_eventlog_service_startuptype_modification.json|2022-08-04 15:37",
+  "technique_label": "T1562.002"
+ },
+ {
+  "event_uid": "410c5575c9c1516f",
+  "cluster_id": "T1562.002|psh_stop_event_logging_controlset001_minint_key.json|2022-08-03 23:57",
+  "technique_label": "T1562.002"
+ },
+ {
+  "event_uid": "8e494319f9c4cb22",
+  "cluster_id": "T1562.002|reg_stop_event_logging_controlset001_minint_key.json|2022-08-03 23:18",
+  "technique_label": "T1562.002"
+ }
+]

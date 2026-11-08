@@ -1,0 +1,81 @@
+===============================================================================================================================================================
+pool_summary   (PR4 | v3; changed lines only)
+kept events: 292   clusters: 66                                                | kept events: 289   clusters: 63
+baseline joined: 292                                                           | baseline joined: 289
+event-level accuracy:   85.6%  (249/291)                                       | event-level accuracy:   86.5%  (249/288)
+cluster-level accuracy: 81.8%  (66 clusters)                                   | cluster-level accuracy: 85.7%  (63 clusters)
+cluster-level accuracy excl. T1059.001: 83.0%  (43 clusters)                   | cluster-level accuracy excl. T1059.001: 89.2%  (40 clusters)
+  T1059.003      5    5   2.0 of 5                                             |   T1059.003      2    2   2.0 of 2
+  apt29     195   33                                                           |   apt29     192   30
+===============================================================================================================================================================
+pr4_baseline_metrics   (PR4 | v3; changed lines only)
+scored events: 291   clusters: 66   skipped (no parseable answer): 1           | scored events: 288   clusters: 63   skipped (no parseable answer): 1
+T1059.003                0        0        0        0        0        0        | T1059.003                0        0        0        0        0        0       
+T1059.003         5.0       1.00     0.40   0.57                               | T1059.003         2.0       1.00     1.00   1.00
+macro-F1 over the 10 techniques: 0.773    accuracy: 85.6%                      | macro-F1 over the 10 techniques: 0.816    accuracy: 86.5%
+T1059.003              0.0      0.0      0.0      0.0      0.0      0.0      2 | T1059.003              0.0      0.0      0.0      0.0      0.0      0.0      2
+T1059.003         5.0       1.00     0.40   0.57                               | T1059.003         2.0       1.00     1.00   1.00
+macro-F1 over the 10 techniques: 0.797    accuracy: 81.8%                      | macro-F1 over the 10 techniques: 0.840    accuracy: 85.7%
+===============================================================================================================================================================
+pr4_checks_report   (PR4 | v3; changed lines only)
+paired events (one per cluster): 66   not valid JSON (counted as not correct): | paired events (one per cluster): 63   not valid JSON (counted as not correct):
+all                    n=66  baseline correct 55 (83%)   this run correct 54 ( | all                    n=63  baseline correct 55 (87%)   this run correct 54 (
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 36 ( | excluding T1059.001    n=40  baseline correct 36 (90%)   this run correct 36 (
+same technique answered as in the baseline: 65/66 (98%)                        | same technique answered as in the baseline: 62/63 (98%)
+mean absolute change in stated confidence: 0.9 points                          | mean absolute change in stated confidence: 0.4 points
+answered NONE: baseline 4   this run 4                                         | answered NONE: baseline 1   this run 1
+T1059.003      5            2            2                                     | T1059.003      2            2            2
+paired events (one per cluster): 66   not valid JSON (counted as not correct): | paired events (one per cluster): 63   not valid JSON (counted as not correct):
+all                    n=66  baseline correct 55 (83%)   this run correct 54 ( | all                    n=63  baseline correct 55 (87%)   this run correct 54 (
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 34 ( | excluding T1059.001    n=40  baseline correct 36 (90%)   this run correct 34 (
+same technique answered as in the baseline: 59/66 (89%)                        | same technique answered as in the baseline: 56/63 (89%)
+mean absolute change in stated confidence: 5.9 points                          | mean absolute change in stated confidence: 5.7 points
+answered NONE: baseline 4   this run 6                                         | answered NONE: baseline 1   this run 3
+T1059.003      5            2            2                                     | T1059.003      2            2            2
+paired events (one per cluster): 66   not valid JSON (counted as not correct): | paired events (one per cluster): 63   not valid JSON (counted as not correct):
+all                    n=66  baseline correct 55 (83%)   this run correct 52 ( | all                    n=63  baseline correct 55 (87%)   this run correct 52 (
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 32 ( | excluding T1059.001    n=40  baseline correct 36 (90%)   this run correct 32 (
+same technique answered as in the baseline: 52/66 (79%)                        | same technique answered as in the baseline: 52/63 (83%)
+answered NONE: baseline 4   this run 2                                         | answered NONE: baseline 1   this run 2
+T1059.003      5            2            0                                     | T1059.003      2            2            0
+===============================================================================================================================================================
+pr4_checks_report_lenient   (PR4 | v3; changed lines only)
+paired events (one per cluster): 66   not valid JSON (counted as not correct): | paired events (one per cluster): 63   not valid JSON (counted as not correct):
+all                    n=66  baseline correct 55 (83%)   this run correct 54 ( | all                    n=63  baseline correct 55 (87%)   this run correct 54 (
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 36 ( | excluding T1059.001    n=40  baseline correct 36 (90%)   this run correct 36 (
+same technique answered as in the baseline: 65/66 (98%)                        | same technique answered as in the baseline: 62/63 (98%)
+mean absolute change in stated confidence: 0.9 points                          | mean absolute change in stated confidence: 0.4 points
+answered NONE: baseline 4   this run 4                                         | answered NONE: baseline 1   this run 1
+T1059.003      5            2            2                                     | T1059.003      2            2            2
+paired events (one per cluster): 66   not valid JSON (counted as not correct): | paired events (one per cluster): 63   not valid JSON (counted as not correct):
+all                    n=66  baseline correct 55 (83%)   this run correct 54 ( | all                    n=63  baseline correct 55 (87%)   this run correct 54 (
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 34 ( | excluding T1059.001    n=40  baseline correct 36 (90%)   this run correct 34 (
+same technique answered as in the baseline: 59/66 (89%)                        | same technique answered as in the baseline: 56/63 (89%)
+mean absolute change in stated confidence: 5.9 points                          | mean absolute change in stated confidence: 5.7 points
+answered NONE: baseline 4   this run 6                                         | answered NONE: baseline 1   this run 3
+T1059.003      5            2            2                                     | T1059.003      2            2            2
+paired events (one per cluster): 66   not valid JSON (counted as not correct): | paired events (one per cluster): 63   not valid JSON (counted as not correct):
+answers recovered from prose + JSON (rule label -> model answer): T1059.003 -> | answers recovered from prose + JSON (rule label -> model answer): T1059.003 ->
+all                    n=66  baseline correct 55 (83%)   this run correct 52 ( | all                    n=63  baseline correct 55 (87%)   this run correct 52 (
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 32 ( | excluding T1059.001    n=40  baseline correct 36 (90%)   this run correct 32 (
+same technique answered as in the baseline: 52/66 (79%)                        | same technique answered as in the baseline: 52/63 (83%)
+mean absolute change in stated confidence: 8.5 points                          | mean absolute change in stated confidence: 8.4 points
+answered NONE: baseline 4   this run 2                                         | answered NONE: baseline 1   this run 2
+T1059.003      5            2            0                                     | T1059.003      2            2            0
+===============================================================================================================================================================
+pr4_eventid_baseline   (PR4 | v3; changed lines only)
+scored events: 291   clusters: 66                                              | scored events: 288   clusters: 63
+LLM baseline                              85.6%          81.8%                 | LLM baseline                              86.5%          85.7%
+Event ID lookup, in-sample                97.6%          90.9%   (ceiling)     | Event ID lookup, in-sample                98.3%          92.1%   (ceiling)
+Event ID lookup, leave-one-cluster        86.6%          89.6%                 | Event ID lookup, leave-one-cluster        86.5%          89.1%
+T1053.005           3    100%         0%          0%                           | T1053.005           3    100%       100%         67%
+T1059.003           5     40%       100%        100%                           | T1059.003           2    100%         0%          0%
+  EventID 1      T1059.003: 5, T1053.005: 4                                    |   EventID 1      T1053.005: 4, T1059.003: 2
+===============================================================================================================================================================
+pr4_cluster_window   (PR4 | v3; changed lines only)
+events in pool: 292   clusters in pool_clean (original, 60 s): 66   events wit | events in pool: 289   clusters in pool_clean (original, 60 s): 63   events wit
+    30 s        74              43          40      82.5%       83.0%          |     30 s        71              40          37      86.0%       89.2%         
+    60 s        66              43          39      81.8%       83.0%          |     60 s        63              40          36      85.7%       89.2%         
+   120 s        53              41          28      83.0%       84.6%          |    120 s        51              39          27      86.3%       89.0%         
+   300 s        44              38          25      79.9%       80.8%          |    300 s        41              35          22      85.7%       87.7%         
+T1059.003          5       5       4       5                                   | T1059.003          2       2       2       2

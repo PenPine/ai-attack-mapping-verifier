@@ -1,0 +1,26 @@
+{
+  "decided": "2026-10-30",
+  "decided_before": "any Stage 3 API call",
+  "rule": "The v3 pool stays as it is. Every Stage 3 analysis reports the main result (63 clusters, 40 excluding T1059.001) and the result without these 3 clusters (60 and 37).",
+  "source": "results/stage3_v3/label_check.md (scripts/label_check.py, scripts/label_check_ps.py)",
+  "clusters": [
+    {
+      "cluster_id": "T1547.001|empire_persistence_registry_modification_run_keys_standard_user_2020-09-04030609.json|2020-09-04 07:08",
+      "technique": "T1547.001",
+      "eval_event_uid": "243e55d798340ba4",
+      "reason": "The Run key value (HKLM\\...\\CurrentVersion\\Run\\WindowsDefender -> MSASCuiL.exe) is written by the Windows Defender engine MsMpEng.exe (chain wininit.exe -> services.exe -> MsMpEng.exe): Defender's own startup entry, not the Empire persistence key."
+    },
+    {
+      "cluster_id": "T1059.003|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-02 03:03",
+      "technique": "T1059.003",
+      "eval_event_uid": "30f8bc022db8378b",
+      "reason": "conhost.exe under a cmd.exe started by the Azure guest agent's log collector (chain WaAppAgent.exe -> CollectGuestLogs.exe -> cmd -> conhost.exe, C:\\WindowsAzure\\Packages): platform activity, not attacker use of cmd."
+    },
+    {
+      "cluster_id": "T1003.006|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:16",
+      "technique": "T1003.006",
+      "eval_event_uid": "f75cb76d84f877ff",
+      "reason": "The 4662 replication-rights access is by the machine account NEWYORK$ (domain DMEVALS), the pattern of normal domain controller replication rather than DCSync by a user account; the only 4662 of the 7 in the pool whose SubjectUserName ends in $."
+    }
+  ]
+}

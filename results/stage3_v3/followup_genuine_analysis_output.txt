@@ -1,0 +1,85 @@
+EXPLORATORY, POST HOC: genuine-condition follow-up, closing line names the original event (results/stage3_v3/followup_genuine_results.jsonl). Not part of the main analysis.
+
+RUN
+  answers 103 (distinct pairs 103); API failures logged: 0
+  stop reasons: {'end_turn': 103}; models: {'claude-sonnet-4-6': 103}
+  retries: 0 answers needed more than one attempt
+  tokens: input 198,285, output 12,832 (max output 304); cost $0.79 ($0.59 input + $0.19 output)
+
+AGAINST THE BASELINE (EXPLORATORY, POST HOC)
+  arm                    events corr. regr. unch. acc base   acc clusters  up down same
+  follow-up                 103     1     3    99    0.874 0.854       59   1    3   55
+  follow-up (strict)        103     1     4    98    0.874 0.845       59   1    4   54
+  original genuine          103     2     4    97    0.874 0.854       59   2    4   53
+
+PERMUTATION TESTS (EXPLORATORY, POST HOC; exact paired sign flip on cluster scores, two-sided, no correction)
+  contrast                          set                                    clusters  score A  score B  mean diff        p  method
+  follow-up vs baseline             all                                          59    0.864    0.887     -0.023   0.5000  exact (4 non-zero clusters, 16 sign patterns)
+  follow-up vs baseline             excl. T1059.001                              40    0.875    0.892     -0.017   1.0000  exact (2 non-zero clusters, 4 sign patterns)
+  follow-up vs baseline             all, without sensitivity                     56    0.857    0.881     -0.024   0.5000  exact (4 non-zero clusters, 16 sign patterns)
+  follow-up vs baseline             excl. T1059.001, without sensitivity         37    0.865    0.883     -0.018   1.0000  exact (2 non-zero clusters, 4 sign patterns)
+  follow-up (strict) vs baseline    all                                          59    0.847    0.887     -0.040   0.2500  exact (5 non-zero clusters, 32 sign patterns)
+  follow-up (strict) vs baseline    excl. T1059.001                              40    0.850    0.892     -0.042   0.5000  exact (3 non-zero clusters, 8 sign patterns)
+  follow-up (strict) vs baseline    all, without sensitivity                     56    0.839    0.881     -0.042   0.2500  exact (5 non-zero clusters, 32 sign patterns)
+  follow-up (strict) vs baseline    excl. T1059.001, without sensitivity         37    0.838    0.883     -0.045   0.5000  exact (3 non-zero clusters, 8 sign patterns)
+  follow-up vs original genuine     all                                          59    0.864    0.856     +0.008   1.0000  exact (2 non-zero clusters, 4 sign patterns)
+  follow-up vs original genuine     excl. T1059.001                              40    0.875    0.863     +0.013   1.0000  exact (2 non-zero clusters, 4 sign patterns)
+  follow-up vs original genuine     all, without sensitivity                     56    0.857    0.848     +0.009   1.0000  exact (2 non-zero clusters, 4 sign patterns)
+  follow-up vs original genuine     excl. T1059.001, without sensitivity         37    0.865    0.851     +0.014   1.0000  exact (2 non-zero clusters, 4 sign patterns)
+
+THE 6 ORIGINAL GENUINE CHANGES UNDER THE FOLLOW-UP (EXPLORATORY, POST HOC)
+  event             label      original    baseline   original   follow-up  status
+  6d7a28d24599d714  T1562.002  correction  NONE       T1562.002  T1562.002  still corrects
+  8d33096e36564250  T1562.002  correction  NONE       T1562.002  NONE       no longer corrects
+  4fc6fdb9ffb5b639  T1021.002  regression  T1021.002  T1059.001  T1021.002  no longer regresses
+  9cf314d6ca8bdd28  T1059.001  regression  T1059.001  T1546.003  T1546.003  still regresses
+  ae4b62e1857e1a39  T1059.003  regression  T1059.003  T1003.006  T1003.006  still regresses
+  f5cc7a45f8c0d69c  T1059.001  regression  T1059.001  T1546.003  T1546.003  still regresses
+  original regressions that still hold: 3 of 4
+  original corrections that still hold: 1 of 2
+  new changes against the baseline, not in the original run: 0
+  answers whose predicted technique differs between follow-up and original: 3
+    410c5575c9c1516f label T1562.002: original T1059.001 -> follow-up T1055
+    4fc6fdb9ffb5b639 label T1021.002: original T1059.001 -> follow-up T1021.002
+    8d33096e36564250 label T1562.002: original T1562.002 -> follow-up NONE
+
+FULL REASONING OF EVERY FOLLOW-UP CHANGE AGAINST THE BASELINE (EXPLORATORY, POST HOC)
+
+  6d7a28d24599d714  label T1562.002  decoy T1055  baseline NONE (70)  original T1562.002  -> follow-up T1562.002 (62)  [follow-up correction, also in the original run]
+  reasoning: The additional evidence shows a PowerShell payload executing 'Set-Service -Name EventLog -StartUpType Disabled' via Invoke-Expression from a suspicious payload.exe, which is a classic T1562.002 (Disable Windows Event Logging) technique. While the original registry modification by svchost.exe under LOCAL SERVICE remains potentially benign, the broader attack context involving EventLog disabling on the same host makes it more plausible this is part of a defense evasion campaign targeting event logging.
+
+  9cf314d6ca8bdd28  label T1059.001  decoy T1059.003  baseline T1059.001 (72)  original T1546.003  -> follow-up T1546.003 (62)  [follow-up regression, also in the original run]
+  reasoning: The additional evidence reveals the Host Application is wmiprvse.exe, meaning PowerShell is being executed within the WMI provider host process, which is characteristic of WMI Event Subscription persistence where WMI triggers DSC/PowerShell execution. The combination of DSC resource execution via wmiprvse.exe and the 'Execute a Remote Command' category strongly suggests WMI-based persistence rather than direct PowerShell execution.
+  text before the JSON: The additional evidence shows the Host Application is `wmiprvse.exe` (WMI Provider Host), meaning PowerShell is being invoked through WMI to execute DSC resources. This is a strong indicator of WMI Event Subscription persistence (T1546.003), where WMI triggers PowerShell/DSC execution via the WMI provider service. The DSC resource `MSFT_xWaitForDisk` being executed through `wmiprvse.exe` with DSC configuration commands is consistent with WMI-based execution rather than direct PowerShell invocation.
+
+  ae4b62e1857e1a39  label T1059.003  decoy T1059.001  baseline T1059.003 (72)  original T1003.006  -> follow-up T1003.006 (82)  [follow-up regression, also in the original run]
+  reasoning: The additional evidence shows cmd.exe writing a file to C:\Windows\Temp\ntds_[REDACTED], which strongly suggests an NTDS.dit extraction — a hallmark of DCSync or domain controller credential dumping activity (T1003.006). The cmd.exe shell on a domain controller (DC01) combined with an ntds-prefixed output file indicates credential harvesting via AD replication or ntdsutil, not merely command shell execution.
+
+  f5cc7a45f8c0d69c  label T1059.001  decoy T1059.003  baseline T1059.001 (72)  original T1546.003  -> follow-up T1546.003 (62)  [follow-up regression, also in the original run]
+  reasoning: The additional evidence shows the Host Application is wmiprvse.exe (WMI Provider Service), meaning PowerShell is being executed from within WMI rather than directly. This is a strong indicator of WMI Event Subscription persistence (T1546.003), where a WMI consumer executes PowerShell code when triggered by a system event, rather than a direct T1059.001 execution.
+
+FOLLOW-UP REASONING OF EVERY ORIGINAL CHANGE (EXPLORATORY, POST HOC)
+
+  6d7a28d24599d714  label T1562.002  decoy T1055  baseline NONE (70)  original T1562.002  -> follow-up T1562.002 (62)  [original correction; follow-up correction]
+  reasoning: The additional evidence shows a PowerShell payload executing 'Set-Service -Name EventLog -StartUpType Disabled' via Invoke-Expression from a suspicious payload.exe, which is a classic T1562.002 (Disable Windows Event Logging) technique. While the original registry modification by svchost.exe under LOCAL SERVICE remains potentially benign, the broader attack context involving EventLog disabling on the same host makes it more plausible this is part of a defense evasion campaign targeting event logging.
+
+  8d33096e36564250  label T1562.002  decoy T1055  baseline NONE (40)  original T1562.002  -> follow-up NONE (45)  [original correction; follow-up unchanged against the baseline]
+  reasoning: The reg.exe command adding HKLM\SYSTEM\ControlSet001\Control\MiniNt is a known defense evasion trick (making Windows behave as if in WinPE mode), but it does not map cleanly to T1562.002 (Disable Windows Event Logging) or any other candidate technique in the list. While it's evasion-related, the specific technique isn't represented among the candidates.
+
+  4fc6fdb9ffb5b639  label T1021.002  decoy None  baseline T1021.002 (55)  original T1059.001  -> follow-up T1021.002 (60)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The additional evidence shows PowerShell being used to move javamtsup.exe into System32 before the service was installed, executed from a suspicious script (readme.ps1 in SysinternalsSuite folder). While PowerShell is involved in staging the binary, the original telemetry event (EventID 7045 - service installation) is most directly associated with lateral movement via remote service creation over SMB/admin shares, which remains the best fit given the domain context and service installation pattern.
+
+  9cf314d6ca8bdd28  label T1059.001  decoy T1059.003  baseline T1059.001 (72)  original T1546.003  -> follow-up T1546.003 (62)  [original regression; follow-up regression]
+  reasoning: The additional evidence reveals the Host Application is wmiprvse.exe, meaning PowerShell is being executed within the WMI provider host process, which is characteristic of WMI Event Subscription persistence where WMI triggers DSC/PowerShell execution. The combination of DSC resource execution via wmiprvse.exe and the 'Execute a Remote Command' category strongly suggests WMI-based persistence rather than direct PowerShell execution.
+  text before the JSON: The additional evidence shows the Host Application is `wmiprvse.exe` (WMI Provider Host), meaning PowerShell is being invoked through WMI to execute DSC resources. This is a strong indicator of WMI Event Subscription persistence (T1546.003), where WMI triggers PowerShell/DSC execution via the WMI provider service. The DSC resource `MSFT_xWaitForDisk` being executed through `wmiprvse.exe` with DSC configuration commands is consistent with WMI-based execution rather than direct PowerShell invocation.
+
+  ae4b62e1857e1a39  label T1059.003  decoy T1059.001  baseline T1059.003 (72)  original T1003.006  -> follow-up T1003.006 (82)  [original regression; follow-up regression]
+  reasoning: The additional evidence shows cmd.exe writing a file to C:\Windows\Temp\ntds_[REDACTED], which strongly suggests an NTDS.dit extraction — a hallmark of DCSync or domain controller credential dumping activity (T1003.006). The cmd.exe shell on a domain controller (DC01) combined with an ntds-prefixed output file indicates credential harvesting via AD replication or ntdsutil, not merely command shell execution.
+
+  f5cc7a45f8c0d69c  label T1059.001  decoy T1059.003  baseline T1059.001 (72)  original T1546.003  -> follow-up T1546.003 (62)  [original regression; follow-up regression]
+  reasoning: The additional evidence shows the Host Application is wmiprvse.exe (WMI Provider Service), meaning PowerShell is being executed from within WMI rather than directly. This is a strong indicator of WMI Event Subscription persistence (T1546.003), where a WMI consumer executes PowerShell code when triggered by a system event, rather than a direct T1059.001 execution.
+
+NON-JSON RATE AND CONFIDENCE (EXPLORATORY, POST HOC)
+  follow-up: lenient 0 (0.0%), strict 3 (2.9%)   original genuine: lenient 0 (0.0%), strict 2 (1.9%)
+  follow-up            n 103 (left out 0): confidence 86.7 -> 87.8 (+1.1); Brier 0.078 -> 0.082; ECE 0.079 -> 0.070
+  original genuine     n 103 (left out 0): confidence 86.7 -> 88.0 (+1.3); Brier 0.078 -> 0.087; ECE 0.079 -> 0.085

@@ -1,0 +1,59 @@
+# secrets: API keys and key files (.env.example is the template and is committed)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+secrets*
+
+# Python environment and caches
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# raw Mordor datasets (download them; see README.md). The folder itself is kept.
+data/raw/*
+!data/raw/.gitkeep
+__MACOSX/
+
+# scratch and temporary files
+scratch/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~
+~$*
+
+# editor and OS settings
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# generated figures
+results/*.png
+
+# instructions for the coding assistant (not part of the project)
+CLAUDE.md
+
+# volunteer relabel material (not used in the final report)
+results/blind_answers_v1.csv
+results/blind_answers_template.csv
+results/blind_key.csv
+results/blind_items.md
+results/volunteer_set_A.html
+results/volunteer_set_B.html
+results/Set A.pdf
+results/Set B.pdf

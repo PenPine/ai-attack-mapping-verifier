@@ -1,0 +1,131 @@
+EXPLORATORY, POST HOC: misleading-condition follow-up, closing line names the original event (results/stage3_v3/followup_results.jsonl). Not part of the main analysis.
+
+RUN
+  answers 102 (distinct pairs 102); API failures logged: 0
+  stop reasons: {'end_turn': 102}; models: {'claude-sonnet-4-6': 102}
+  retries: 0 answers needed more than one attempt
+  tokens: input 188,716, output 16,600 (max output 488); cost $0.82 ($0.57 input + $0.25 output)
+
+AGAINST THE BASELINE (EXPLORATORY, POST HOC)
+  arm                    events corr. regr. unch. acc base   acc clusters  up down same
+  follow-up                 102     0     0   102    0.824 0.824       55   0    0   55
+  follow-up (strict)        102     0    20    82    0.824 0.627       55   0   15   40
+  original misleading       102     0    11    91    0.824 0.716       55   0   10   45
+
+PERMUTATION TESTS (EXPLORATORY, POST HOC; exact paired sign flip on cluster scores, two-sided, no correction)
+  contrast                          set                                    clusters  score A  score B  mean diff        p  method
+  follow-up vs baseline             all                                          55    0.824    0.824     +0.000   1.0000  none (all differences zero)
+  follow-up vs baseline             excl. T1059.001                              32    0.865    0.865     +0.000   1.0000  none (all differences zero)
+  follow-up vs baseline             all, without sensitivity                     52    0.814    0.814     +0.000   1.0000  none (all differences zero)
+  follow-up vs baseline             excl. T1059.001, without sensitivity         29    0.851    0.851     +0.000   1.0000  none (all differences zero)
+  follow-up (strict) vs baseline    all                                          55    0.597    0.824     -0.227   0.0001  exact (15 non-zero clusters, 32,768 sign patterns)
+  follow-up (strict) vs baseline    excl. T1059.001                              32    0.484    0.865     -0.380   0.0001  exact (14 non-zero clusters, 16,384 sign patterns)
+  follow-up (strict) vs baseline    all, without sensitivity                     52    0.612    0.814     -0.202   0.0002  exact (13 non-zero clusters, 8,192 sign patterns)
+  follow-up (strict) vs baseline    excl. T1059.001, without sensitivity         29    0.500    0.851     -0.351   0.0005  exact (12 non-zero clusters, 4,096 sign patterns)
+  follow-up vs original misleading  all                                          55    0.824    0.691     +0.133   0.0020  exact (10 non-zero clusters, 1,024 sign patterns)
+  follow-up vs original misleading  excl. T1059.001                              32    0.865    0.635     +0.229   0.0020  exact (10 non-zero clusters, 1,024 sign patterns)
+  follow-up vs original misleading  all, without sensitivity                     52    0.814    0.712     +0.103   0.0078  exact (8 non-zero clusters, 256 sign patterns)
+  follow-up vs original misleading  excl. T1059.001, without sensitivity         29    0.851    0.667     +0.184   0.0078  exact (8 non-zero clusters, 256 sign patterns)
+
+THE 11 ORIGINAL MISLEADING CHANGES UNDER THE FOLLOW-UP (EXPLORATORY, POST HOC)
+  event             label      original    baseline   original   follow-up  status
+  0793212750e00b04  T1053.005  regression  T1053.005  T1547.001  T1053.005  no longer regresses
+  15a2624605c9e3d3  T1003.001  regression  T1003.001  T1003.006  T1003.001  no longer regresses
+  235415a4e63aed89  T1562.002  regression  T1562.002  T1055      T1562.002  no longer regresses
+  243e55d798340ba4  T1547.001  regression  T1547.001  T1546.003  T1547.001  no longer regresses
+  30f8bc022db8378b  T1059.003  regression  T1059.003  T1547.001  T1059.003  no longer regresses
+  57ef63e46ffa0e1f  T1562.002  regression  T1562.002  T1055      T1562.002  no longer regresses
+  691ea664af0c6825  T1003.001  regression  T1003.001  T1003.006  T1003.001  no longer regresses
+  6b4c661df59e892b  T1546.003  regression  T1546.003  T1053.005  T1546.003  no longer regresses
+  ac42058f1cdd3ac1  T1003.006  regression  T1003.006  T1003.001  T1003.006  no longer regresses
+  ae4b62e1857e1a39  T1059.003  regression  T1059.003  T1059.001  T1059.003  no longer regresses
+  b7d819458bfa1246  T1053.005  regression  T1053.005  T1547.001  T1053.005  no longer regresses
+  original regressions that still hold: 0 of 11
+  original corrections that still hold: 0 of 0
+  new changes against the baseline, not in the original run: 0
+  answers whose predicted technique differs between follow-up and original: 14
+    243e55d798340ba4 label T1547.001: original T1546.003 -> follow-up T1547.001
+    ae4b62e1857e1a39 label T1059.003: original T1059.001 -> follow-up T1059.003
+    235415a4e63aed89 label T1562.002: original T1055 -> follow-up T1562.002
+    691ea664af0c6825 label T1003.001: original T1003.006 -> follow-up T1003.001
+    ac42058f1cdd3ac1 label T1003.006: original T1003.001 -> follow-up T1003.006
+    b7d819458bfa1246 label T1053.005: original T1547.001 -> follow-up T1053.005
+    6d7a28d24599d714 label T1562.002: original T1055 -> follow-up NONE
+    0793212750e00b04 label T1053.005: original T1547.001 -> follow-up T1053.005
+    57ef63e46ffa0e1f label T1562.002: original T1055 -> follow-up T1562.002
+    15a2624605c9e3d3 label T1003.001: original T1003.006 -> follow-up T1003.001
+    edfd71c1fc0e6d92 label T1055: original NOT JSON -> follow-up T1003.001
+    30f8bc022db8378b label T1059.003: original T1547.001 -> follow-up T1059.003
+    210eb98244a082ba label T1562.002: original T1055 -> follow-up T1003.001
+    6b4c661df59e892b label T1546.003: original T1053.005 -> follow-up T1546.003
+
+FULL REASONING OF EVERY FOLLOW-UP CHANGE AGAINST THE BASELINE (EXPLORATORY, POST HOC)
+  (none)
+
+FOLLOW-UP REASONING OF EVERY ORIGINAL CHANGE (EXPLORATORY, POST HOC)
+
+  0793212750e00b04  label T1053.005  decoy T1547.001  baseline T1053.005 (97)  original T1547.001  -> follow-up T1053.005 (95)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original telemetry clearly shows schtasks.exe creating a scheduled task for persistence on a remote host, which maps directly to T1053.005. The additional evidence shows a separate Registry Run key persistence event (T1547.001), but that is a different event and does not change the classification of the original schtasks.exe telemetry.
+
+  15a2624605c9e3d3  label T1003.001  decoy T1003.006  baseline T1003.001 (78)  original T1003.006  -> follow-up T1003.001 (72)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original Sysmon EventID 10 showing taskmgr.exe accessing lsass.exe with GrantedAccess 0x1410 remains consistent with T1003.001 (LSASS Memory credential dumping). The additional EventID 4662 with DS-Replication GUIDs suggests DCSync activity may also be occurring, but that is a separate event and does not change the classification of the original LSASS process access telemetry.
+  text before the JSON: The additional evidence (EventID 4662) shows a Directory Service Access event with the GUID `{1131f6aa-9c07-11d1-f79f-00c04fc2dcd2}`, which corresponds to `DS-Replication-Get-Changes` — a core indicator of DCSync activity. However, this new event is separate from the original telemetry (taskmgr.exe → lsass.exe via Sysmon EventID 10). The original telemetry still clearly shows process access to LSASS with read permissions, which is T1003.001. The 4662 event may be from a different attack action on the same host, but it doesn't change what the original Sysmon event describes.
+
+  235415a4e63aed89  label T1562.002  decoy T1055  baseline T1562.002 (55)  original T1055  -> follow-up T1562.002 (50)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The additional evidence shows PurpleSharp.exe performing process injection into notepad.exe (T1055), but this is a separate event from the original telemetry. The original registry modification targeting HKLM\System\CurrentControlSet\Control\WMI\Autologger\EventLog-Application remains most consistent with T1562.002, as PurpleSharp may be simulating multiple ATT&CK techniques simultaneously.
+  text before the JSON: Looking at the additional evidence carefully:
+
+The new evidence shows a Sysmon EventID 8 (CreateRemoteThread) where PurpleSharp.exe is injecting a thread into notepad.exe. This is classic process injection behavior (T1055).
+
+However, I need to consider whether this additional evidence is actually related to the original telemetry event. The original event was:
+- Sysmon EventID 12 (Registry key creation/deletion)
+- Target: HKLM\System\CurrentControlSet\Control\WMI\Autologger\EventLog-Application
+- Process: svchost.exe
+- User: NT AUTHORITY\LOCAL SERVICE
+
+The additional evidence involves PurpleSharp.exe (a purple team simulation tool) injecting into notepad.exe. PurpleSharp simulates various ATT&CK techniques, so it could be simulating multiple techniques simultaneously. The registry modification to the Autologger\EventLog-Application key by svchost.exe may actually be a legitimate side-effect or a separate simulated technique.
+
+The original telemetry event itself still points to registry modification of the WMI Autologger for EventLog-Application. The additional evidence about process injection is a separate event from a different process chain. The original telemetry event's context (autologger modification for EventLog-Application) remains most consistent with T1562.002.
+
+The process injection evidence doesn't change the nature of the original registry modification event - these appear to be separate simulated techniques in the same PurpleSharp session.
+
+  243e55d798340ba4  label T1547.001  decoy T1546.003  baseline T1547.001 (90)  original T1546.003  -> follow-up T1547.001 (85)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original telemetry clearly shows a registry value being set under HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, which directly maps to T1547.001. The additional evidence of WMI event filter creation (T1546.003) is a separate technique occurring in the same attack chain but does not change the classification of the original registry-based event.
+
+  30f8bc022db8378b  label T1059.003  decoy T1059.001  baseline T1059.003 (72)  original T1547.001  -> follow-up T1059.003 (70)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original telemetry clearly shows cmd.exe as the parent process spawning conhost.exe under SYSTEM context, which is consistent with T1059.003 (Windows Command Shell). The additional PowerShell evidence involves a different user and process, so it does not alter the classification of the original telemetry event.
+  text before the JSON: The additional evidence shows PowerShell being used to create a registry key under `HKCU:\Software\Classes\Folder\shell`, which is a known technique for COM hijacking or establishing persistence via registry modification. However, this new evidence is from a different user (pbeesly) and a different process (PowerShell), while the original telemetry specifically shows cmd.exe spawning conhost.exe as SYSTEM. The original telemetry event itself is best characterized as Windows Command Shell execution, and the PowerShell evidence is a separate event that doesn't change what the original telemetry represents.
+
+  57ef63e46ffa0e1f  label T1562.002  decoy T1055  baseline T1562.002 (72)  original T1055  -> follow-up T1562.002 (70)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original registry modification to the WMI Autologger MatchAllKeyword (set to 0x0) is still consistent with disabling Windows event logging (T1562.002). The additional CreateRemoteThread evidence showing PowerShell injecting into notepad.exe represents separate concurrent activity and does not change the interpretation of the original registry modification event.
+  text before the JSON: Looking at the additional evidence, I see a Sysmon Event ID 8 (CreateRemoteThread) showing PowerShell injecting a thread into notepad.exe. This is a classic process injection pattern.
+
+However, I need to evaluate whether this additional evidence is actually related to the original telemetry event or is separate activity. The original event is a registry modification to WMI Autologger settings that disables event logging - this is a distinct action from process injection.
+
+The original telemetry event (EventID 13 - registry modification) targeting `HKLM\System\CurrentControlSet\Control\WMI\Autologger\EventLog-Application\...\MatchAllKeyword` with a value of 0x0 is still most consistent with T1562.002. The additional process injection evidence could be concurrent malicious activity but doesn't change what the original registry modification event represents.
+
+The original prediction remains well-supported by the telemetry.
+
+  691ea664af0c6825  label T1003.001  decoy T1003.006  baseline T1003.001 (95)  original T1003.006  -> follow-up T1003.001 (90)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original telemetry (Sysmon EventID 10, PowerShell accessing lsass.exe with GrantedAccess 0x1010) remains consistent with LSASS memory dumping. The additional EventID 4662 evidence showing DS-Replication-Get-Changes access is a separate DCSync-related event and does not change the interpretation of the original LSASS process access event.
+  text before the JSON: The additional evidence shows an EventID 4662 with ObjectType `{19195a5b-6da0-11d0-afd3-00c04fd930c9}` (which is the domainDNS object class) and Properties including `{1131f6aa-9c07-11d1-f79f-00c04fc2dcd2}` (DS-Replication-Get-Changes), with AccessMask 0x100 — this is a classic DCSync indicator. However, the original telemetry is specifically a Sysmon EventID 10 showing PowerShell accessing lsass.exe with GrantedAccess 0x1010, which is LSASS memory reading. The additional evidence appears to be a separate event that may be correlated activity but does not change what the original telemetry event describes.
+
+The question asks me to predict the technique for the **original telemetry event**, which remains a PowerShell process accessing lsass.exe memory.
+
+  6b4c661df59e892b  label T1546.003  decoy T1053.005  baseline T1546.003 (95)  original T1053.005  -> follow-up T1546.003 (90)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original telemetry (Sysmon Event ID 19) clearly shows a WMI event filter named 'WSUS_QQTJ7' being deleted, subscribing to Win32_LogonSession creation events, which is T1546.003. The additional evidence shows a separate schtasks.exe command creating a scheduled task (T1053.005), but this is a different event and does not change the classification of the original WMI event filter telemetry.
+
+  ac42058f1cdd3ac1  label T1003.006  decoy T1003.001  baseline T1003.006 (95)  original T1003.001  -> follow-up T1003.006 (90)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original telemetry (Event ID 4662 with DS-Replication-Get-Changes GUID on a domain controller) remains a strong indicator of DCSync. The additional evidence shows Outflank-Dumpert accessing LSASS, which is a separate credential dumping activity (T1003.001) happening on a different system, and does not change the interpretation of the original 4662 event which is specifically tied to AD replication abuse on MORDORDC.
+
+  ae4b62e1857e1a39  label T1059.003  decoy T1059.001  baseline T1059.003 (72)  original T1059.001  -> follow-up T1059.003 (65)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original telemetry clearly shows conhost.exe spawned by cmd.exe, which directly maps to T1059.003 (Windows Command Shell). The additional PowerShell evidence (EventID 4104 with 'View-Job -JobName Keystrokes') is from a different user and domain context and does not change the interpretation of the original Sysmon event, though it suggests broader attacker activity in the environment.
+
+  b7d819458bfa1246  label T1053.005  decoy T1547.001  baseline T1053.005 (97)  original T1547.001  -> follow-up T1053.005 (97)  [original regression; follow-up unchanged against the baseline]
+  reasoning: The original telemetry clearly shows schtasks.exe being invoked with /Create /SC ONLOGON to establish a scheduled task named 'MordorElevated', which is a textbook T1053.005 technique. The additional evidence of a registry Run key being set represents a separate persistence mechanism in the same attack chain but does not affect the classification of the original event.
+  text before the JSON: The additional evidence shows a registry Run key being set (T1547.001), but the original telemetry event clearly shows schtasks.exe creating a scheduled task with /Create /SC ONLOGON, which is unambiguously T1053.005. The new evidence appears to be a separate persistence mechanism occurring in the same attack chain and does not change the classification of the original event.
+
+NON-JSON RATE AND CONFIDENCE (EXPLORATORY, POST HOC)
+  follow-up: lenient 0 (0.0%), strict 25 (24.5%)   original misleading: lenient 1 (1.0%), strict 14 (13.7%)
+  follow-up            n 102 (left out 0): confidence 87.3 -> 84.6 (-2.7); Brier 0.111 -> 0.117; ECE 0.077 -> 0.067
+  original misleading  n 101 (left out 1): confidence 87.2 -> 81.3 (-5.9); Brier 0.103 -> 0.174; ECE 0.088 -> 0.132

@@ -1,0 +1,17 @@
+{
+  "T1003.006_DCSync": {
+    "predicted_technique": "T1003.006",
+    "confidence": 95,
+    "reasoning": "Event ID 4662 with the GUID 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2 corresponds to DS-Replication-Get-Changes, and the object type GUID 19195a5b-6da0-11d0-afd3-00c04fd930c9 corresponds to the domainDNS class, both of which are hallmarks of a DCSync attack where an adversary abuses AD replication permissions to pull password hashes from a domain controller."
+  },
+  "T1055_ProcessInjection": {
+    "predicted_technique": "T1055",
+    "confidence": 95,
+    "reasoning": "Sysmon Event ID 8 (CreateRemoteThread) indicates that PurpleSharp.exe created a remote thread in notepad.exe, which is a classic indicator of process injection where code is injected into the address space of another running process."
+  },
+  "T1059.003_SharpView": {
+    "predicted_technique": "T1059.003",
+    "confidence": 72,
+    "reasoning": "The parent process is cmd.exe, which spawned SharpView.exe. While SharpView itself is an AD enumeration tool, the telemetry event shows cmd.exe as the parent, indicating the adversary used the Windows Command Shell (T1059.003) to execute the command. The SharpView activity (Get-ObjectAcl) is AD enumeration but doesn't map to any of the listed candidate techniques directly."
+  }
+}

@@ -1,0 +1,64 @@
+
+==============================================================================
+NOISE FLOOR: same prompt, repeated  [lenient parsing]
+paired events (one per cluster): 66   not valid JSON (counted as not correct): 0
+all                    n=66  baseline correct 55 (83%)   this run correct 54 (82%)   right->wrong 1  wrong->right 0   exact McNemar p=1.000
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 36 (84%)   right->wrong 0  wrong->right 0   exact McNemar p=1.000
+same technique answered as in the baseline: 65/66 (98%)
+mean absolute change in stated confidence: 0.9 points
+answered NONE: baseline 4   this run 4
+
+technique      n  baseline ok  this run ok
+T1003.001      6            6            6
+T1003.006      3            3            3
+T1021.002      8            8            8
+T1053.005      3            3            3
+T1055          5            4            4
+T1059.001     23           19           18
+T1059.003      5            2            2
+T1546.003      6            6            6
+T1547.001      3            3            3
+T1562.002      4            1            1
+
+==============================================================================
+MASK 1: event-type cues hidden  [lenient parsing]
+paired events (one per cluster): 66   not valid JSON (counted as not correct): 0
+all                    n=66  baseline correct 55 (83%)   this run correct 54 (82%)   right->wrong 4  wrong->right 3   exact McNemar p=1.000
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 34 (79%)   right->wrong 3  wrong->right 1   exact McNemar p=0.625
+same technique answered as in the baseline: 59/66 (89%)
+mean absolute change in stated confidence: 5.9 points
+answered NONE: baseline 4   this run 6
+
+technique      n  baseline ok  this run ok
+T1003.001      6            6            6
+T1003.006      3            3            3
+T1021.002      8            8            7
+T1053.005      3            3            3
+T1055          5            4            5
+T1059.001     23           19           20
+T1059.003      5            2            2
+T1546.003      6            6            4
+T1547.001      3            3            3
+T1562.002      4            1            1
+
+==============================================================================
+MASK 2: event-type cues + process/tool names hidden  [lenient parsing]
+paired events (one per cluster): 66   not valid JSON (counted as not correct): 3
+answers recovered from prose + JSON (rule label -> model answer): T1059.003 -> T1562.002; T1059.003 -> T1059.001
+all                    n=66  baseline correct 55 (83%)   this run correct 52 (79%)   right->wrong 6  wrong->right 3   exact McNemar p=0.508
+excluding T1059.001    n=43  baseline correct 36 (84%)   this run correct 32 (74%)   right->wrong 5  wrong->right 1   exact McNemar p=0.219
+same technique answered as in the baseline: 52/66 (79%)
+mean absolute change in stated confidence: 8.5 points
+answered NONE: baseline 4   this run 2
+
+technique      n  baseline ok  this run ok
+T1003.001      6            6            6
+T1003.006      3            3            3
+T1021.002      8            8            7
+T1053.005      3            3            3
+T1055          5            4            5
+T1059.001     23           19           20
+T1059.003      5            2            0
+T1546.003      6            6            4
+T1547.001      3            3            3
+T1562.002      4            1            1

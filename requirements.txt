@@ -1,0 +1,4 @@
+# Packages the code imports, at the versions used for the reported results (Python 3.13.14)
+anthropic==1.7.0
+python-dotenv==1.2.3
+numpy==2.5.3

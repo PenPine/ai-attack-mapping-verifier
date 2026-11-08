@@ -1,0 +1,21 @@
+kept events: 292   clusters: 66
+baseline joined: 292
+event-level accuracy:   85.6%  (249/291)
+cluster-level accuracy: 81.8%  (66 clusters)
+cluster-level accuracy excl. T1059.001: 83.0%  (43 clusters)
+
+per technique (events / clusters / cluster-level correct):
+  T1003.001      9    6   6.0 of 6
+  T1003.006      7    3   3.0 of 3
+  T1021.002      8    8   8.0 of 8
+  T1053.005      4    3   3.0 of 3
+  T1055          5    5   4.0 of 5
+  T1059.001    199   23   18.3 of 23
+  T1059.003      5    5   2.0 of 5
+  T1546.003     12    6   6.0 of 6
+  T1547.001      3    3   3.0 of 3
+  T1562.002     40    4   0.7 of 4
+
+by stratum (events / clusters):
+  atomic     97   33
+  apt29     195   33

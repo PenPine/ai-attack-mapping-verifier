@@ -1,0 +1,44 @@
+{
+  "T1003.006_DCSync": {
+    "genuine": {
+      "predicted_technique": "T1003.006",
+      "confidence": 99,
+      "changed_from_baseline": false,
+      "reasoning": "The additional evidence strongly reinforces the DCSync prediction: a PowerShell process on a workstation (not a DC) initiating RPC connections to the domain controller's port 135 and dynamic RPC port immediately before the 4662 event with DS-Replication-Get-Changes GUID is the classic signature of a DCSync attack (e.g., via Mimikatz or PowerView). Legitimate AD replication would originate from another DC, not a workstation PowerShell session."
+    },
+    "misleading": {
+      "predicted_technique": "T1003.006",
+      "confidence": 70,
+      "changed_from_baseline": false,
+      "reasoning": "The additional evidence claims the source is a legitimate secondary DC performing routine replication, which could explain the 4662 event. However, the subject user 'pgustavo' is a named user account rather than a machine/DC account, which is atypical for legitimate inter-DC replication traffic and remains a strong indicator of DCSync abuse; legitimate replication would typically show a computer account (e.g., DC02$) rather than a named user principal."
+    }
+  },
+  "T1055_ProcessInjection": {
+    "genuine": {
+      "predicted_technique": "T1055",
+      "confidence": 98,
+      "changed_from_baseline": false,
+      "reasoning": "The additional evidence strongly reinforces the original prediction: PurpleSharp.exe (a known adversary simulation tool) was launched from a non-standard desktop path and within 0.1 seconds created a remote thread in notepad.exe with no StartModule/StartFunction, which is a hallmark of shellcode injection rather than any legitimate API call, confirming classic process injection (T1055)."
+    },
+    "misleading": {
+      "predicted_technique": "T1055",
+      "confidence": 85,
+      "changed_from_baseline": false,
+      "reasoning": "While the additional evidence attempts to contextualize the CreateRemoteThread call as legitimate IT tooling, Sysmon Event ID 8 from a process named 'PurpleSharp.exe' (a well-known adversary simulation tool) injecting into notepad.exe remains a strong indicator of T1055 process injection. The claimed legitimate justification is inconsistent with PurpleSharp's known purpose as a purple team/adversary simulation framework, making the benign explanation suspect."
+    }
+  },
+  "T1059.003_SharpView": {
+    "genuine": {
+      "predicted_technique": "T1059.003",
+      "confidence": 75,
+      "changed_from_baseline": false,
+      "reasoning": "The additional evidence confirms SharpView.exe was launched via cmd.exe (no PowerShell in ancestry) and performed LDAP queries to enumerate ACLs \u2014 consistent with AD reconnaissance. The parent process cmd.exe remains the most relevant candidate technique from the list, and the network evidence simply corroborates SharpView's enumeration activity rather than pointing to a different technique."
+    },
+    "misleading": {
+      "predicted_technique": "T1059.001",
+      "confidence": 55,
+      "changed_from_baseline": true,
+      "reasoning": "The additional evidence of PowerShell Script Block Logging (Event ID 4104) capturing 'Get-ADGroupMember' execution moments before the cmd.exe/SharpView activity suggests PowerShell was the primary execution vehicle in this attack chain. However, the original telemetry clearly shows cmd.exe as the parent process launching SharpView, so both techniques are involved; the PowerShell evidence tips the balance slightly toward T1059.001 as the initiating execution method, though confidence is moderate given the ambiguity."
+    }
+  }
+}

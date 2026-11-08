@@ -1,0 +1,175 @@
+Stage 3 analysis of results/stage3_v3/stage3_results.jsonl: 315 answers genuine 103, misleading 102, neutral 110; 63 clusters with an answer
+
+====================================================================================================
+TESTS: primary lenient parse
+====================================================================================================
+
+[all: 63 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         55    0.691    0.824     -0.133   0.0020   primary  exact (10 non-zero clusters, 1,024 sign patterns)
+  genuine vs baseline            59    0.856    0.887     -0.031   0.3438    0.6875  exact (6 non-zero clusters, 64 sign patterns)
+  neutral vs baseline            63    0.847    0.847     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          55    0.691    0.824     -0.133   0.0020    0.0059  exact (10 non-zero clusters, 1,024 sign patterns)
+
+[excl. T1059.001: 40 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         32    0.635    0.865     -0.229   0.0020   primary  exact (10 non-zero clusters, 1,024 sign patterns)
+  genuine vs baseline            40    0.863    0.892     -0.029   0.5000    1.0000  exact (4 non-zero clusters, 16 sign patterns)
+  neutral vs baseline            40    0.892    0.892     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          32    0.635    0.865     -0.229   0.0020    0.0059  exact (10 non-zero clusters, 1,024 sign patterns)
+
+[all, without sensitivity: 60 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         52    0.712    0.814     -0.103   0.0078   primary  exact (8 non-zero clusters, 256 sign patterns)
+  genuine vs baseline            56    0.848    0.881     -0.033   0.3438    0.6875  exact (6 non-zero clusters, 64 sign patterns)
+  neutral vs baseline            60    0.839    0.839     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          52    0.712    0.814     -0.103   0.0078    0.0234  exact (8 non-zero clusters, 256 sign patterns)
+
+[excl. T1059.001, without sensitivity: 37 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         29    0.667    0.851     -0.184   0.0078   primary  exact (8 non-zero clusters, 256 sign patterns)
+  genuine vs baseline            37    0.851    0.883     -0.032   0.5000    1.0000  exact (4 non-zero clusters, 16 sign patterns)
+  neutral vs baseline            37    0.883    0.883     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          29    0.667    0.851     -0.184   0.0078    0.0234  exact (8 non-zero clusters, 256 sign patterns)
+
+Conclusion rule: significant on the 63-cluster set (primary p < 0.05; secondary Holm p < 0.05) and the 40-cluster set agrees in direction.
+  misleading vs baseline   direction 63: -0.133  40: -0.229  agree         -> SUPPORTED
+  genuine vs baseline      direction 63: -0.031  40: -0.029  agree         -> not supported
+  neutral vs baseline      direction 63: +0.000  40: +0.000  no difference -> not supported
+  misleading vs neutral    direction 63: -0.133  40: -0.229  agree         -> SUPPORTED
+
+====================================================================================================
+TESTS: strict parse (sensitivity analysis)
+====================================================================================================
+
+[all: 63 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         55    0.545    0.824     -0.279   0.0000   primary  exact (18 non-zero clusters, 262,144 sign patterns)
+  genuine vs baseline            59    0.839    0.887     -0.048   0.1719    0.3438  exact (7 non-zero clusters, 128 sign patterns)
+  neutral vs baseline            63    0.847    0.847     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          55    0.545    0.824     -0.279   0.0000    0.0000  exact (18 non-zero clusters, 262,144 sign patterns)
+
+[excl. T1059.001: 40 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         32    0.385    0.865     -0.479   0.0000   primary  exact (18 non-zero clusters, 262,144 sign patterns)
+  genuine vs baseline            40    0.838    0.892     -0.054   0.2500    0.5000  exact (5 non-zero clusters, 32 sign patterns)
+  neutral vs baseline            40    0.892    0.892     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          32    0.385    0.865     -0.479   0.0000    0.0000  exact (18 non-zero clusters, 262,144 sign patterns)
+
+[all, without sensitivity: 60 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         52    0.577    0.814     -0.237   0.0001   primary  exact (15 non-zero clusters, 32,768 sign patterns)
+  genuine vs baseline            56    0.830    0.881     -0.051   0.1719    0.3438  exact (7 non-zero clusters, 128 sign patterns)
+  neutral vs baseline            60    0.839    0.839     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          52    0.577    0.814     -0.237   0.0001    0.0002  exact (15 non-zero clusters, 32,768 sign patterns)
+
+[excl. T1059.001, without sensitivity: 37 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         29    0.425    0.851     -0.425   0.0001   primary  exact (15 non-zero clusters, 32,768 sign patterns)
+  genuine vs baseline            37    0.824    0.883     -0.059   0.2500    0.5000  exact (5 non-zero clusters, 32 sign patterns)
+  neutral vs baseline            37    0.883    0.883     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          29    0.425    0.851     -0.425   0.0001    0.0002  exact (15 non-zero clusters, 32,768 sign patterns)
+
+Conclusion rule: significant on the 63-cluster set (primary p < 0.05; secondary Holm p < 0.05) and the 40-cluster set agrees in direction.
+  misleading vs baseline   direction 63: -0.279  40: -0.479  agree         -> SUPPORTED
+  genuine vs baseline      direction 63: -0.048  40: -0.054  agree         -> not supported
+  neutral vs baseline      direction 63: +0.000  40: +0.000  no difference -> not supported
+  misleading vs neutral    direction 63: -0.279  40: -0.479  agree         -> SUPPORTED
+
+====================================================================================================
+SENSITIVITY: primary contrast (misleading vs baseline, all clusters)
+====================================================================================================
+  variant                            clusters  score A  score B  mean diff        p  method
+  main analysis                            55    0.691    0.824     -0.133   0.0020  exact (10 non-zero clusters, 1,024 sign patterns)
+  (a) one event per cluster                55    0.745    0.873     -0.127   0.0156  exact (7 non-zero clusters, 128 sign patterns)
+  (b) without T1003.001                    49    0.680    0.803     -0.122   0.0078  exact (8 non-zero clusters, 256 sign patterns)
+  (b) without T1003.006                    52    0.679    0.814     -0.135   0.0039  exact (9 non-zero clusters, 512 sign patterns)
+  (b) without T1053.005                    52    0.702    0.814     -0.112   0.0078  exact (8 non-zero clusters, 256 sign patterns)
+  (b) without T1055                        50    0.680    0.827     -0.147   0.0020  exact (10 non-zero clusters, 1,024 sign patterns)
+  (b) without T1059.001                    32    0.635    0.865     -0.229   0.0020  exact (10 non-zero clusters, 1,024 sign patterns)
+  (b) without T1059.003                    53    0.717    0.818     -0.101   0.0078  exact (8 non-zero clusters, 256 sign patterns)
+  (b) without T1546.003                    49    0.663    0.803     -0.139   0.0039  exact (9 non-zero clusters, 512 sign patterns)
+  (b) without T1547.001                    52    0.692    0.814     -0.122   0.0039  exact (9 non-zero clusters, 512 sign patterns)
+  (b) without T1562.002                    51    0.745    0.876     -0.131   0.0039  exact (9 non-zero clusters, 512 sign patterns)
+  ((a) seed 'stage3-analysis|one-per-cluster'; T1021.002 has no misleading condition and is never in the primary contrast. Cap 5 and the reboot-window sensitivity are not run: they need new calls or a new pool)
+
+====================================================================================================
+DESCRIPTIVE (primary lenient parse unless stated)
+====================================================================================================
+
+Corrections (baseline wrong -> correct), regressions (correct -> wrong), unchanged; clusters whose score went up / down / stayed the same
+  condition   events corr. regr. unch. acc base   acc clusters  up down same
+  genuine        103     2     4    97    0.874 0.854       59   2    4   53
+  misleading     102     0    11    91    0.824 0.716       55   0   10   45
+  neutral        110     0     0   110    0.836 0.836       63   0    0   63
+
+Confidence and calibration (answers with a valid confidence; baseline on the same events)
+  condition      n left out conf base   conf  change Brier base  Brier ECE base    ECE
+  genuine      103        0      86.7   88.0    +1.3      0.078  0.087    0.079  0.085
+  misleading   101        1      87.2   81.3    -5.9      0.103  0.174    0.088  0.132
+  neutral      110        0      86.6   86.3    -0.3      0.107  0.104    0.064  0.061
+  (left out = answers without a valid confidence, in this condition or its baseline; ECE: 5 equal-width confidence bins; Brier and ECE treat confidence/100 as P(answer correct))
+
+Non-JSON rate (no valid JSON object with predicted_technique)
+  condition   answers  lenient (primary)        strict  max_tokens stops
+  genuine         103         0 ( 0.0%)      2 ( 1.9%)           0
+  misleading      102         1 ( 1.0%)     14 (13.7%)           0
+  neutral         110         0 ( 0.0%)      0 ( 0.0%)           0
+
+T1059.001 alone (descriptive, no test)
+  condition   events corr. regr. unch. acc base   acc clusters  up down same
+  genuine         46     0     2    44    0.848 0.804       19   0    2   17
+  misleading      53     0     0    53    0.774 0.774       23   0    0   23
+  neutral         53     0     0    53    0.774 0.774       23   0    0   23
+
+Evidence from the same log channel as the original (genuine and misleading only)
+  condition   events corr. regr. unch. acc base   acc
+  genuine         76     1     3    72    0.842 0.816
+  misleading      31     0     6    25    0.806 0.613
+
+Evidence from the different log channel (genuine and misleading only)
+  condition   events corr. regr. unch. acc base   acc
+  genuine         27     1     1    25    0.963 0.963
+  misleading      71     0     5    66    0.831 0.761
+
+====================================================================================================
+EXPLORATORY: baseline confidence of misleading-condition events, by outcome (descriptive)
+====================================================================================================
+  group               n    mean  median
+  regressed          11    83.5    90.0
+  stayed correct     73    91.5    95.0
+  (events whose baseline answer was correct; 'regressed' = scored not correct under misleading evidence)
+
+====================================================================================================
+POST HOC, EXPLORATORY (2026-11-08, after the results): without the T1021.002 clusters that are a local service install
+====================================================================================================
+  left out: T1021.002|apt29_evals_day1_manual_2020-05-01225525.json|2020-05-01 23:04  (javamtsup, New-Service in a local elevated PowerShell on SCRANTON)
+
+[all, without local install: 62 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         55    0.691    0.824     -0.133   0.0020   primary  exact (10 non-zero clusters, 1,024 sign patterns)
+  genuine vs baseline            58    0.871    0.885     -0.014   0.6875    1.0000  exact (5 non-zero clusters, 32 sign patterns)
+  neutral vs baseline            62    0.844    0.844     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          55    0.691    0.824     -0.133   0.0020    0.0059  exact (10 non-zero clusters, 1,024 sign patterns)
+
+[excl. T1059.001, without local install: 39 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         32    0.635    0.865     -0.229   0.0020   primary  exact (10 non-zero clusters, 1,024 sign patterns)
+  genuine vs baseline            39    0.885    0.889     -0.004   1.0000    1.0000  exact (3 non-zero clusters, 8 sign patterns)
+  neutral vs baseline            39    0.889    0.889     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          32    0.635    0.865     -0.229   0.0020    0.0059  exact (10 non-zero clusters, 1,024 sign patterns)
+
+[all, without sensitivity, without local install: 59 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         52    0.712    0.814     -0.103   0.0078   primary  exact (8 non-zero clusters, 256 sign patterns)
+  genuine vs baseline            55    0.864    0.879     -0.015   0.6875    1.0000  exact (5 non-zero clusters, 32 sign patterns)
+  neutral vs baseline            59    0.836    0.836     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          52    0.712    0.814     -0.103   0.0078    0.0234  exact (8 non-zero clusters, 256 sign patterns)
+
+[excl. T1059.001, without sensitivity, without local install: 36 clusters]
+  contrast                 clusters  score A  score B  mean diff        p  p (Holm)  method
+  misleading vs baseline         29    0.667    0.851     -0.184   0.0078   primary  exact (8 non-zero clusters, 256 sign patterns)
+  genuine vs baseline            36    0.875    0.880     -0.005   1.0000    1.0000  exact (3 non-zero clusters, 8 sign patterns)
+  neutral vs baseline            36    0.880    0.880     +0.000   1.0000    1.0000  none (all differences zero)
+  misleading vs neutral          29    0.667    0.851     -0.184   0.0078    0.0234  exact (8 non-zero clusters, 256 sign patterns)
+  (lenient parse; Holm within each set as in the main tests. T1021.002 is never in the primary contrast, so only the contrasts that include it can change. Not part of the evaluation plan written before Stage 3.)

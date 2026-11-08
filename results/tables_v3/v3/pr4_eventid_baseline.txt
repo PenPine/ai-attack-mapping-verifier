@@ -1,0 +1,25 @@
+scored events: 288   clusters: 63
+
+                                    event level  cluster level
+LLM baseline                              86.5%          85.7%
+Event ID lookup, in-sample                98.3%          92.1%   (ceiling)
+Event ID lookup, leave-one-cluster        86.5%          89.1%
+
+cluster-level accuracy by technique
+technique    clusters     LLM  lookup in  lookup loo
+T1003.001           6    100%       100%        100%
+T1003.006           3    100%       100%        100%
+T1021.002           8    100%       100%        100%
+T1053.005           3    100%       100%         67%
+T1055               5     80%       100%        100%
+T1059.001          23     79%       100%        100%
+T1059.003           2    100%         0%          0%
+T1546.003           6    100%       100%        100%
+T1547.001           3    100%         0%          0%
+T1562.002           4     17%       100%         78%
+
+Event IDs that carry more than one technique label (the lookup cannot separate these):
+  EventID 13     T1562.002: 33, T1547.001: 3
+  EventID 1      T1053.005: 4, T1059.003: 2
+
+Read: if the in-sample lookup is close to or above the LLM, then much of the LLM accuracy can be explained by event type alone, and the baseline accuracy should not be described as technique recognition.
