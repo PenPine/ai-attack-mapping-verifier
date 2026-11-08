@@ -1,8 +1,12 @@
 """
-run_baseline_pilot.py
+dev_checks/run_baseline_pilot.py
 Runs Stage 1 (baseline prediction) on the 3 hand-picked pilot events.
+Run from the project root:  python dev_checks/run_baseline_pilot.py   (API calls)
 """
 import json
+import sys
+
+sys.path.insert(0, ".")          # run from the project root
 from llm.client import call_llm
 from llm.prompts import BASELINE_SYSTEM_PROMPT, build_baseline_user_prompt
 

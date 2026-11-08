@@ -48,9 +48,11 @@ evaluation/
 analysis/
   stage3_analysis.py     Stage 3 tests and descriptive results (no API calls)
   followup_analysis.py   exploratory follow-up analysis (no API calls)
+pr4_checks.py, pr4_baseline_metrics.py, pr4_eventid_baseline.py, pr4_cluster_window.py
+                         baseline checks of Progress Report 4, run by the table scripts
 scripts/                 table builders, power table, audits, label checks, exports (no API calls)
 tests/                   unit tests for the Event ID lookup
-pr4_*.py, check_*.py     baseline checks and one-off inspections from Progress Reports 3-4
+dev_checks/              one-off development checks and the feasibility pilots (not needed to reproduce)
 results/                 every stored input and output (see below)
 ```
 
@@ -100,7 +102,8 @@ ANTHROPIC_API_KEY=sk-ant-...
 LLM_MODEL=claude-sonnet-4-6
 ```
 
-`.env` is in `.gitignore`; never commit it. `python test_api_connection.py` checks the key with one short call.
+`.env` is in `.gitignore`; never commit it. `python dev_checks/test_api_connection.py` checks the key with one
+short call.
 
 ## Reproduction
 
@@ -141,17 +144,19 @@ The steps above use only these entry points:
 
 | Role | Files |
 |---|---|
-| Pipeline | `clean_pool.py`, `build_eval_set.py`, `python -m evidence.stage3_builder`, `run_stage3.py`, `run_pipeline_baseline.py` (*API*), `test_api_connection.py` (*API*) |
+| Pipeline (root) | `clean_pool.py`, `build_eval_set.py`, `run_stage3.py`, `run_pipeline_baseline.py` (*API*); `python -m evidence.stage3_builder` |
+| Called by the table scripts (root) | `pr4_checks.py` (also the noise and masking runs, *API*), `pr4_baseline_metrics.py`, `pr4_eventid_baseline.py`, `pr4_cluster_window.py` |
 | Analysis and tables | `analysis/stage3_analysis.py`, `analysis/followup_analysis.py`, `scripts/recompute_tables_v3.py`, `scripts/build_tables_v3.py`, `scripts/power_table.py` |
 | Checks of the results | the other files in `scripts/`, and `tests/` |
-| Called by the table scripts | `pr4_checks.py` (also the noise and masking runs, *API*), `pr4_baseline_metrics.py`, `pr4_eventid_baseline.py`, `pr4_cluster_window.py` |
 
-The other Python files in the root folder are one-off development checks from Progress Reports 2-4, kept for the
-record and not needed to reproduce the results: `check_*.py`, the remaining `pr4_*.py`, `accuracy_by_group.py`,
-`cluster_report.py`, `compute_accuracy.py`, `filter_by_id.py`, `find_adjacent.py` (feasibility check; its Event ID
-set is reused in `evidence/stage3_builder.py`), `inspect_events.py`, `remove_diagtrack_noise.py`, `tag_t1059.py`,
-`run_baseline_pilot.py` and `run_verification_pilot.py` (the 3-event feasibility pilots, *API*), and
-`evidence/pilot_evidence.py`. Some of them read files from earlier stages and may not run on the current pool.
+`dev_checks/` holds the one-off development checks from Progress Reports 2-4, kept for the record and not needed
+to reproduce the results: `check_*.py`, `pr4_adjusted_agreement.py`, `pr4_rule_peek.py`, `pr4_t1059_*.py`,
+`accuracy_by_group.py`, `cluster_report.py`, `compute_accuracy.py`, `filter_by_id.py`, `find_adjacent.py`
+(feasibility check; its Event ID set is reused in `evidence/stage3_builder.py`), `inspect_events.py`,
+`remove_diagtrack_noise.py`, `tag_t1059.py`, the 3-event feasibility pilots `run_baseline_pilot.py` and
+`run_verification_pilot.py` (*API*; they use `evidence/pilot_evidence.py`), and `test_api_connection.py` (*API*).
+Run them from the project root, e.g. `python dev_checks/check_boot_noise.py`. Some read files from earlier stages
+and may not run on the current pool.
 
 ## Stored results
 
@@ -165,9 +170,8 @@ set is reused in `evidence/stage3_builder.py`), `inspect_events.py`, `remove_dia
   every Stage 3 and follow-up answer with its raw reply, tokens and request ID (`*_results.jsonl`), the run logs,
   the analysis outputs and `changed_answers.csv`.
 
-The volunteer relabel material is not in the repository; the final report does not use the volunteer relabel.
-`pr4_score_blind.py`, `pr4_volunteer_pack.py` and `pr4_review_sheets.py` refer to those files and do not run
-without them.
+The volunteer relabel material and the scripts that built and scored it are not in the repository; the final
+report does not use the volunteer relabel.
 
 The stored event data is public Mordor telemetry. It contains lab account names and lab passwords that appear in
 the attack commands, for example in the APT29 PsExec command lines.

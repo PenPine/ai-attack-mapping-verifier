@@ -1,6 +1,6 @@
 """
 inspect_events.py — Check Mordor/Security-Datasets host logs.
-Usage: python inspect_events.py <path_to_json_or_jsonl_file>
+Usage: python dev_checks/inspect_events.py <path_to_json_or_jsonl_file>
 """
 import json
 import sys

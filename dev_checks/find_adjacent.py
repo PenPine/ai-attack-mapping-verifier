@@ -1,6 +1,7 @@
 """
-find_adjacent.py
+dev_checks/find_adjacent.py
 Feasibility check for Stage 3 evidence. No API calls, nothing is modified.
+Run from the project root:  python dev_checks/find_adjacent.py
 
 For every event in the eval set, look for a related REAL event in the same raw file:
   - same Hostname, different EventID, EventID in INFORMATIVE (noise types are never evidence)
@@ -14,7 +15,9 @@ import glob
 import json
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
+import sys
 
+sys.path.insert(0, ".")          # run from the project root
 from extraction.extract_pool import load_events
 
 LINKED_WINDOW = 120

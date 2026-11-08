@@ -4,8 +4,8 @@ What do the events behind each rule label look like? Lists the distinct values o
 techniques whose labels came up as questionable (and the other small ones). No API calls, no expertise needed:
 it shows how specific each rule really is, for example whether every event labeled T1021.002 is PsExec.
 
-    python pr4_rule_peek.py            all techniques below
-    python pr4_rule_peek.py T1021.002  one technique
+    python dev_checks/pr4_rule_peek.py            all techniques below
+    python dev_checks/pr4_rule_peek.py T1021.002  one technique
 """
 import json
 import sys

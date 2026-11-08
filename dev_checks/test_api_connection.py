@@ -1,7 +1,10 @@
 """
 Run this once after setting up .env to confirm your API key works
-before writing anything else. python test_api_connection.py
+before writing anything else. From the project root: python dev_checks/test_api_connection.py
 """
+import sys
+
+sys.path.insert(0, ".")          # run from the project root
 from llm.client import call_llm
 
 if __name__ == "__main__":

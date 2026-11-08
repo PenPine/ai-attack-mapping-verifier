@@ -1,6 +1,9 @@
 import json
 import re
 from collections import Counter, defaultdict
+import sys
+
+sys.path.insert(0, ".")          # run from the project root: python dev_checks/check_leaks_and_clusters.py
 from extraction.clean_event import clean_event
 
 ID_RE = re.compile(r"\bT1\d{3}(?:\.\d{3})?\b")

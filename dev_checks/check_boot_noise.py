@@ -2,7 +2,9 @@ import glob
 import json
 from collections import Counter, defaultdict
 from datetime import datetime
+import sys
 
+sys.path.insert(0, ".")          # run from the project root: python dev_checks/check_boot_noise.py
 from extraction.extract_pool import load_events
 
 

@@ -7,7 +7,7 @@ For every row of results/eval_set_v3.jsonl, up to three conditions:
                 1. guid  shares a process GUID with the original (nearest in time)
                 2. pid   shares a process ID with the original, within PID_WINDOW seconds (PIDs are reused)
                 3. time  no link; nearest in time inside the original's 60 s cluster window
-              Only Event IDs in INFORMATIVE are used as evidence (the feasibility rule of find_adjacent.py).
+              Only Event IDs in INFORMATIVE are used as evidence (the feasibility rule of dev_checks/find_adjacent.py).
               Times are only compared within one clock family, because the raw files mix clocks.
               An event that is itself a pool event labelled with ANOTHER technique is never used: the next
               link in the same order is taken; if none is left the event has no genuine evidence.
@@ -240,7 +240,7 @@ def key_of(e):
 
 # ---------------- time and links ----------------
 def parse_time(e):
-    """(clock family, epoch seconds); same field priority as find_adjacent.py."""
+    """(clock family, epoch seconds); same field priority as dev_checks/find_adjacent.py."""
     for kind, fields in TIME_KINDS:
         for f in fields:
             v = e.get(f)

@@ -1,6 +1,6 @@
 """
 filter_by_id.py — Print all events for a specific Event ID
-Usage: python filter_by_id.py <file> <event_id>
+Usage: python dev_checks/filter_by_id.py <file> <event_id>
 """
 import json
 import sys
